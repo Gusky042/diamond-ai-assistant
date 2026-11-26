@@ -8,6 +8,7 @@ WHATSAPP_TOKEN = os.getenv("WHATSAPP_TOKEN")
 PHONE_NUMBER_ID = os.getenv("PHONE_NUMBER_ID")
 MY_NUMBER = os.getenv("MY_WHATSAPP_NUMBER")
 
+
 # ---------- ADDRESS ----------
 API_VERSION = "v26.0"      # check Meta's docs for the latest version
 url = f"https://graph.facebook.com/{API_VERSION}/{PHONE_NUMBER_ID}/messages"
@@ -43,7 +44,13 @@ def send_whatsapp(to, text):
     return False
 
 # ---------- USE IT ----------
-send_whatsapp(MY_NUMBER, "Hello from Python! 💅 This is Diamond's first message.")
+caption = ask_ai("Write a short, warm WhatsApp message from Nails by Diamond in Enugu, "
+                 "telling customers we now do French tips. Max 2 sentences. Use *single stars* for bold.")
+print("AI wrote:", caption)
+
+if caption:
+    send_whatsapp(MY_NUMBER, caption)
+# send_whatsapp(MY_NUMBER, "Hello from Python! 💅 This is Diamond's first message.")
 
 
 def send_template(to):
