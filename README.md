@@ -1,5 +1,4 @@
-# 💅 Diamond: AI WhatsApp Receptionist for a Nail Business
-
+# 💅 Diamond: AI Receptionist for a Nail Business (WhatsApp version coming soon)
 An AI assistant for **Nails by Diamond** (ESUT Agbani, Enugu) that chats with customers
 in **English and Pidgin**, quotes **real prices**, and **books appointments**, built with
 Python and the Google Gemini API.
@@ -31,16 +30,21 @@ Diamond: Hello Emma! Acrylic is *8,000 Naira*. What date and time would you like
 You: Friday, by 5pm
 Diamond: Emma, I have you down for Acrylic on Friday, 27 November 2026 at 5pm. Shall I confirm?
 You: yes
-   🔧 Diamond is using make_booking with {...}
+   🔧 Diamond is using make_booking with {'customer_name': 'Chiagozie', 'booking_time': '5pm', 'service': 'Nail Art', 'booking_date': 'Saturday, 28 November 2026'}
 Diamond: Your booking is confirmed! 💅
 ```
+## ⚠️ Known limitations
+- Runs in the terminal only (WhatsApp integration is next)
+- Dates and times are stored as text, so "5pm" and "17:00" aren't recognised as the same time
+- Assumes one customer per time slot (one nail technician)
+- Bookings are stored in a JSON file, not a database
 
 ## 📂 Other projects in this repo
 | Project | File | What it shows |
 |---|---|---|
 | Rule-based nail bot | `days/day2/nails_bot.py` | Python basics, loops, functions |
-| Nigerian weather | `days/day3/weather` | Query parameters, live data |
-| GitHub profile tool | `days/day4/first_call.py` | Calling APIs, error handling |
+| Nigerian weather | `days/day3/weather.PY` | Query parameters, live data |
+| GitHub profile tool | `days/day4/first_AI_call.py` | Calling APIs, error handling |
 | AI chat with memory | `days/day5/diamond_chat.py` | Conversation history, system prompts |
 
 ## 🔜 Coming next
