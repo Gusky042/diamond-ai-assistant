@@ -10,6 +10,8 @@ import psycopg
 from psycopg.types.json import Jsonb
 from flask import Flask, request
 from dotenv import load_dotenv
+import functools
+print = functools.partial(print, flush=True)
 
 # =====================================================================
 # 1. SETTINGS
