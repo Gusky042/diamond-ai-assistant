@@ -19,7 +19,6 @@ An AI receptionist for **Nails by Diamond** (ESUT Agbani, Enugu) that chats with
 - 📅 Converts "tomorrow" and "Friday" into exact dates
 - 🛡️ Blocks double bookings and services the business doesn't offer
 - ✅ Confirms with the customer before booking
-- 💾 Saves bookings to a JSON file
 - 🔁 Retries automatically when the AI server is busy
 - 📱 Runs on **real WhatsApp** through the WhatsApp Cloud API (webhooks + messaging)
 - ☁️ Hosted on **Render**, so it works 24/7 without a laptop
@@ -60,15 +59,19 @@ PostgreSQL (Neon) · psycopg · Render
 
 ## 💬 Example conversation
 ```
-You: I want acrylic, my name is Emma
-   🔧 Diamond is using get_price with {'service': 'acrylic'}
-Diamond: Hello Emma! Acrylic is *8,000 Naira*. What date and time would you like?
-You: Friday, by 5pm
-Diamond: Emma, I have you down for Acrylic on Friday, 27 November 2026 at 5pm. Shall I confirm?
-You: yes
-   🔧 Diamond is using make_booking with {'customer_name': 'Chiagozie', 'booking_time': '5pm', 'service': 'Nail Art', 'booking_date': 'Saturday, 28 November 2026'}
-Diamond: Your booking is confirmed! 💅
+Customer: How much is acrylic?
+   🔧 get_price({'service': 'acrylic'})
+Diamond:  Acrylic is *8,000 Naira*. Would you like to book an appointment?
+Customer: Yes, Monday by 12pm
+Diamond:  Please, what is your name?
+Customer: Chiagozie
+Diamond:  So you want *Acrylic* on *Monday, 30 November 2026* at *12pm*. Shall I confirm this booking?
+Customer: Yes please
+   🔧 make_booking({'customer_name': 'Chiagozie', 'service': 'acrylic',
+                    'booking_date': 'Monday, 30 November 2026', 'booking_time': '12pm'})
+Diamond:  Your *Acrylic* is confirmed for *Monday, 30 November 2026* at *12pm*, Chiagozie! 💅
 ```
+
 ## ⚠️ Known limitations
 - Text messages only (no voice notes or images yet)
 - Dates and times are stored as text, so "5pm" and "17:00" aren't recognised as the same slot
@@ -79,7 +82,7 @@ Diamond: Your booking is confirmed! 💅
 | Project | File | What it shows |
 |---|---|---|
 | Rule-based nail bot | `days/day2/nails_bot.py` | Python basics, loops, functions |
-| Nigerian weather | `days/day3/weather.PY` | Query parameters, live data |
+| Nigerian weather | `days/day3/weather.py` | Query parameters, live data |
 | GitHub profile tool | `days/day4/first_AI_call.py` | Calling APIs, error handling |
 | AI chat with memory | `days/day5/diamond_chat.py` | Conversation history, system prompts |
 
@@ -122,3 +125,11 @@ lock, and then I worked through three more real-world issues on the way to a wor
 - **When something fails silently, build a way to see what the system sees.** Here, that meant webhooks and status codes.
 - **Don't guess. Rule causes out one at a time, using evidence.**
 - Real projects fail for **platform and account reasons**, not just code bugs, and debugging those is part of the job.
+
+---
+
+## 🤝 Want an AI assistant like Diamond for your business?
+I build AI-powered WhatsApp assistants that answer customers, quote prices and take bookings 24/7,
+for salons, pharmacies, boutiques, schools and more.
+
+📧 **anekechiagoziep@gmail.com** · 💬 **WhatsApp: +2349020356574**
